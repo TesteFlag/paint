@@ -15,9 +15,13 @@
                 const canvas = document.querySelector("canvas");
                 const canvasCtx = canvas.getContext("2d");
 
+                let clicking = false;
+
                 canvas.addEventListener("mousedown", (event) => {
                     const canvasX = event.pageX - canvas.offsetLeft;
                     const canvasY = event.pageY - canvas.offsetTop;
+                    
+                    clicking = true;
                     
                     canvasCtx.beginPath();
                     
@@ -25,16 +29,18 @@
                 });
 
                 canvas.addEventListener("mousemove", (event) => {
-                    const canvasX = event.pageX - canvas.offsetLeft;
-                    const canvasY = event.pageY - canvas.offsetTop;
+                    if(clicking) {
+                        const canvasX = event.pageX - canvas.offsetLeft;
+                        const canvasY = event.pageY - canvas.offsetTop;
 
-                    canvasCtx.lineTo(canvasX, canvasY);
+                        canvasCtx.lineTo(canvasX, canvasY);
 
-                    canvasCtx.stroke();
+                        canvasCtx.stroke();
+                    }
                 });
                 
                 canvas.addEventListener("mouseup", () => {
-                    
+                    clicking = false;
                 });
             });
         </script>
