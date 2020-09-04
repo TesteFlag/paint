@@ -6,10 +6,29 @@
         <style>
             canvas {
                 border: 3px dashed #000;
+                margin: 70px auto 0 auto;
+                display: block;
             }
         </style>
         <script>
-            
+            document.addEventListener("DOMContentLoaded", () => {
+                const canvas = document.querySelector("canvas");
+                const canvasCtx = canvas.getContext("2d");
+
+                canvas.addEventListener("mousedown", (event) => {
+
+                });
+
+                canvas.addEventListener("mousemove", (event) => {
+                    console.log( event.pageX - canvas.offsetLeft );
+
+                    console.log( event.pageY - canvas.offsetTop );
+                });                
+                
+                canvas.addEventListener("mouseup", () => {
+                    
+                });
+            });
         </script>
     </head>
     <body>
