@@ -22,7 +22,7 @@
                     const canvasY = event.pageY - canvas.offsetTop;
                     
                     clicking = true;
-                    
+
                     canvasCtx.beginPath();
                     
                     canvasCtx.moveTo(canvasX, canvasY);
@@ -40,6 +40,10 @@
                 });
                 
                 canvas.addEventListener("mouseup", () => {
+                    clicking = false;
+                });
+
+                canvas.addEventListener("mouseout", () => {
                     clicking = false;
                 });
             });
