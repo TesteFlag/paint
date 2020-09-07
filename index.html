@@ -20,6 +20,7 @@
 
                 const colorPicker = document.querySelector('select[name="colorPicker"]');
                 const linePicker = document.querySelector('select[name="linePicker"]');
+                const deleteButton = document.querySelector(".delete");
 
                 let clicking = false;
 
@@ -51,6 +52,12 @@
 
                 canvas.addEventListener("mouseout", () => {
                     clicking = false;
+                });
+                
+                deleteButton.addEventListener("click", () => {
+                    if( confirm("Quer mesmo apagar tudo?") ) {
+                        canvasCtx.clearRect(0, 0, canvas.width, canvas.height);
+                    }
                 });
 
                 colorPicker.addEventListener("change", () => {
@@ -97,6 +104,7 @@
                         <option>50</option>
                     </optgroup>
                 </select>
+                <button type="button" class="delete">Apagar</button>
             </div>
             <canvas width="900" height="900"></canvas>
         </main>
